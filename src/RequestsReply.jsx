@@ -62,16 +62,14 @@ export default class RequestsReply extends React.Component {
                             placeholder="Your letter body!"
                             className="letter letter-body"
                         />
-                        <div className="letter-signature">
-                            <textarea
-                                ref={(iFd) => {
-                                    this.iFd = iFd;
-                                }}
-                                placeholder="Your Initials!"
-                                className="letter letter-subject"
-                                maxLength="2"
-                            />
-                        </div>
+                        <textarea
+                            ref={(iFd) => {
+                                this.iFd = iFd;
+                            }}
+                            placeholder="Your Initials!"
+                            className="letter letter-subject"
+                            maxLength="2"
+                        />
                     </div>
                     <div className="container body-container button-container">
                         <Button variant="primary" className="letter-button" onClick={() => this.replyLetter()}>SEND</Button>
