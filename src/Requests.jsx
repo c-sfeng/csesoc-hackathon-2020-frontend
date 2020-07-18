@@ -2,21 +2,57 @@ import React from 'react';
 import Header from './Header';
 import { Button, Carousel } from 'react-bootstrap';
 import { content } from './assets/content';
+import { socket } from './App.jsx';
 
 export class Requests extends React.Component {
-    render() {
+    constructor(props) {
+        super(props);
+        this.state = {requests: []};
+    }
 
-        const { requests } = this.props;
-        console.log(requests);
-        
-        let currentIndex = 0;
-
-        // CURRENT INDEX HERE!
-        const handleSelect = (selectedIndex, e) => {
-            currentIndex = selectedIndex;
-            console.log(currentIndex);
+    renderRequests() {
+        if (this.state.requests == null || !this.state.requests.length) {
+            return (
+                <div>No Requests :(</div>
+            );
         }
-        
+        const requestsCarousel = this.state.requests.map((request) => 
+            (<Carousel.Item>
+                <div className="container body-container letter-container">
+                    <p className="letter letter-subject">{request.subject}</p>
+                    <p className="letter letter-body"> {request.body}</p>
+                    <div className="letter-signature">
+                        <p className="letter-signature">{request.initials}</p>
+                    </div>
+                </div>
+                <div className="container body-container button-container">
+                    <Button variant="primary" className="letter-button">
+                        {content.requests.reply}
+                    </Button>
+                    <Button variant="primary" className="report-button">
+                        {content.requests.report}
+                    </Button>
+                </div>
+            </Carousel.Item>)
+        );
+        return (
+            <div className="container letter-carousel">
+                <Carousel fade={true} interval={null}>
+                    {requestsCarousel}
+                </Carousel>
+            </div>
+        );
+    }
+
+    componentDidMount() {
+        socket.emit("getRequests");
+        socket.on("receiveRequests", (requests) => {
+            this.setState({requests: requests});
+            console.log(requests);
+        });
+    }
+
+    render() {
         return (
             <div className="App">
                 <div className="container">
@@ -25,36 +61,7 @@ export class Requests extends React.Component {
                 <div className="container letter-container tool-tip">
                     Tips
                 </div>
-                <div className="container letter-carousel">
-                    <Carousel fade={true} interval={null} onSelect={handleSelect}>
-                        <Carousel.Item>
-                            <div className="container body-container letter-container">
-                                <p className="letter letter-subject">Subject 1</p>
-                                <p className="letter letter-body"> testtestesttestetsetstetstestet</p>
-                                <div className="letter-signature">
-                                    <p className="letter-signature">- INITIALS</p>
-                                </div>
-                            </div>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <div className="container body-container letter-container">
-                                <p className="letter letter-subject">Subject 2</p>
-                                <p className="letter letter-body"> blahhhhhhhhhhhhhhhhh</p>
-                                <div className="letter-signature">
-                                    <p className="letter-signature">- INITIALS</p>
-                                </div>
-                            </div>
-                        </Carousel.Item>
-                    </Carousel>
-                    <div className="container body-container button-container">
-                        <Button variant="primary" className="letter-button">
-                            {content.requests.reply}
-                        </Button>
-                        <Button variant="primary" className="report-button">
-                            {content.requests.report}
-                        </Button>
-                    </div>
-                </div>
+                {this.renderRequests()}
             </div>
         );
     }   

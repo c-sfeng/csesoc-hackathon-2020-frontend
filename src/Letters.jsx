@@ -18,9 +18,11 @@ class Letters extends React.Component {
             );
         }
         const lettersListGroup = this.state.letters.map((letter) => 
-            <ListGroup.Item>
-                {letter.dateSent + " " + letter.subject + " " + letter.body}
-            </ListGroup.Item>
+            <Link to={{pathname: content.urls.threadURL, state: {isResponse : false, letterId: letter.letterId, userId: letter.userId}}}>
+                <ListGroup.Item>
+                    {letter.dateSent + " " + letter.subject + " " + letter.body}
+                </ListGroup.Item>
+            </Link>
         );
         return (
             <ListGroup>{lettersListGroup}</ListGroup>
@@ -28,8 +30,7 @@ class Letters extends React.Component {
     }
 
     componentDidMount() {
-        const userId = "1"; // tmp
-        socket.emit("getUserLetters", userId);
+        socket.emit("getUserLetters", this.props.userId);
         socket.on("receiveUserLetters", (letters) => {
             this.setState({letters: letters});
             console.log(letters);

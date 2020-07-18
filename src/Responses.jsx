@@ -9,6 +9,7 @@ class Responses extends React.Component {
     constructor(props) {
         super(props);
         this.state = {responses: []};
+        alert(this.props.userId);
     }
 
     renderResponses() {
@@ -30,8 +31,7 @@ class Responses extends React.Component {
     }
 
     componentDidMount() {
-        const userId = "1"; // tmp
-        socket.emit("getUserResponses", userId);
+        socket.emit("getUserResponses", this.props.userId);
         socket.on("receiveUserResponses", (responses) => {
             this.setState({responses: responses});
             console.log(responses);
