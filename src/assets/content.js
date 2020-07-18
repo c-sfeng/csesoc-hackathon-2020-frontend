@@ -19,5 +19,9 @@ export const content = {
     },
     "letters": {
         "create": "SEND A LETTER >"
+    },
+    "requests": {
+        "reply": "REPLY",
+        "report": "REPORT"
     }
 }

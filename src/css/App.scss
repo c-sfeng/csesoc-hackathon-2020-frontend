@@ -40,6 +40,9 @@
   padding: 15px 15px 0px 15px;
   font-size: 14px;
   border: none;
+  display: flex;
+  justify-content: left;
+  margin: 0;
 }
 
 .letter-signature {
@@ -57,11 +60,49 @@ p.letter-signature {
 .letter-button {
   background-color: #6cd077;
   border-color: #6cd077;
+  opacity: 1 !important;
+  animation: none !important;
 }
 
 .letter-button:hover {
   background-color: #59ac62;
   border-color: #59ac62;
+  opacity: 1 !important;
+  animation: none !important;
+}
+
+.report-button {
+  background-color: #d06c6c;
+  border-color: #d06c6c;
+  opacity: 1 !important;
+  animation: none !important;
+}
+
+.report-button:hover {
+  background-color: #ac5959;
+  border-color: #ac5959;
+  opacity: 1 !important;
+  animation: none !important;
+}
+
+.carousel-control-prev-icon {
+  background-image: url("../assets/arrow_back_ios_24px_sharp.svg");
+}
+
+.carousel-control-next-icon {
+  background-image: url("../assets/arrow_forward_ios_24px_sharp.svg");
+}
+
+.carousel-indicators {
+  display: none;
+}
+
+.letter-carousel {
+  width: 70%;
+}
+
+.carousel-fade {
+  transition-duration: 1s;
 }
 
 .create-button {
