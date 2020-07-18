@@ -24,6 +24,10 @@ class App extends React.Component {
       endpoint: 'http://localhost:8000/'
     };
     socket = socketIOClient(this.state.endpoint);
+    socket.emit("getUserId");
+    socket.on("receiveUserId", (userId) => {
+      this.userId = userId;
+    });
   }
 
   render() {
@@ -34,22 +38,27 @@ class App extends React.Component {
             <Route exact path={content.urls.homeURL}>
               <Home />
             </Route>
-            <Route exact path={content.urls.lettersURL}>
-              <Letters />
+            <Route exact path={content.urls.lettersURL} render={(props) => (
+              <Letters {...props} userId={this.userId} />
+            )}>
             </Route>
-            <Route exact path={content.urls.responsesURL}>
-              <Responses />
+            <Route exact path={content.urls.responsesURL} render={(props) => (
+              <Responses {...props} userId={this.userId} />
+            )}>
             </Route>
-            <Route exact path={content.urls.requestsURL}>
-              <Requests />
+            <Route exact path={content.urls.requestsURL} render={(props) => (
+              <Requests {...props} userId={this.userId} />
+            )}>
             </Route>
             <Route exact path={content.urls.threadURL} component={Thread}>
             </Route>
-            <Route exact path={content.urls.supportURL}>
-              <Support />
+            <Route exact path={content.urls.supportURL} render={(props) => (
+              <Support {...props} userId={this.userId} />
+            )}>
             </Route>
-            <Route exact path={content.urls.lettersCreateURL}>
-              <LettersCreate />
+            <Route exact path={content.urls.lettersCreateURL} render={(props) => (
+              <LettersCreate {...props} userId={this.userId} />
+            )}>
             </Route>
             <Route exact path={content.urls.requestsReplyURL}>
               <RequestReply />

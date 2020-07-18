@@ -48,8 +48,7 @@ class Letters extends React.Component {
     }
 
     componentDidMount() {
-        const userId = "1"; // tmp
-        socket.emit("getUserLetters", userId);
+        socket.emit("getUserLetters", this.props.userId);
         socket.on("receiveUserLetters", (letters) => {
             this.setState({letters: letters});
             console.log(letters);
