@@ -47,11 +47,23 @@
   font-size: 18px;
   height: 50px;
   overflow: hidden;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  width: 498px;
 }
 
 .letter-body {
   font-size: 14px;
   height: 435px;
+  width: 498px;
+}
+
+.letter-date {
+  font-size: 14px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .letter-signature {
@@ -109,6 +121,8 @@ p.letter-signature {
   animation: none !important;
 }
 
+
+
 .carousel-control-prev-icon {
   background-image: url("../assets/arrow_back_ios_24px_sharp.svg");
 }
@@ -126,12 +140,35 @@ p.letter-signature {
 }
 
 .carousel-fade {
-  transition-duration: 1s;
+  transition-duration: 1s !important;
 }
 
 .create-button {
   font-family: 'Josefin Sans', sans-serif;
   font-weight: 200;
+  font-size: 20px;
+}
+
+.back-button {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 200;
+  font-size: 20px;
+}
+
+a {
+  text-decoration: none !important;
+  color: black !important;
+}
+
+.back-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.third {
+  width: 90px;
+  display: flex;
+  align-items: center;
 }
 
 .norm-container {
@@ -183,10 +220,58 @@ p.letter-signature {
   text-align: justify;
 }
 
-@media screen and (max-width: 575px){
-  .primary-text {
-      font-size: 0.95rem;
-      line-height: 200%;
-      letter-spacing: 0.02rem;
-  }
+.thread-link {
+  display: flex;
+  justify-content: space-between;
+  border: none;
+  border-bottom: 0.5px black solid;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 200;
+  font-size: 18px;
+}
+
+.thread-container {
+  padding: 0;
+}
+
+.row-thread {
+  width: 100%;
+  text-align: left;
+}
+
+.right-align {
+  text-align: right;
+}
+
+.responses-container {
+  padding-top: 82px;
+}
+
+.horizontal-thread-container {
+  width: 100%;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  height: 700px;
+  margin-top: 50px;
+}
+
+.row-flex {
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  display: flex;
+}
+
+.letter-cards {
+  display: flex;
+  justify-content: flex-start;
+  align-content: flex-start;
+  flex-direction: column;
+  border: none;
+}
+
+.thread-send {
+  margin: 30px 0px 0px 0px;
+  flex-direction: row-reverse;
+  width: 515px;
 }
