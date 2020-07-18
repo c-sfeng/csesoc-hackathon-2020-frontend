@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from './Header';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { content } from './assets/content';
 import { Link } from 'react-router-dom';
@@ -39,8 +40,14 @@ class Responses extends React.Component {
 
     render(){
         return(
-            <div>
-                {this.renderResponses()}
+            <div className="App">
+                <div className="container">
+                    <Header selected={4}/>
+                </div>
+            
+                <div>
+                    {this.renderResponses()}
+                </div>
             </div>
         );
     } 

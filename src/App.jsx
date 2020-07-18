@@ -10,6 +10,8 @@ import Home from './Home.jsx';
 import Letters from './Letters.jsx';
 import Responses from './Responses.jsx';
 import Requests from './Requests.jsx';
+import Support from './Support.jsx';
+import LettersCreate from './LettersCreate.jsx';
 import Thread from './Thread.jsx'
 import socketIOClient from "socket.io-client";
 
@@ -41,6 +43,12 @@ class App extends React.Component {
               <Requests />
             </Route>
             <Route exact path={content.urls.threadURL} component={Thread}>
+            </Route>
+            <Route exact path={content.urls.supportURL}>
+              <Support />
+            </Route>
+            <Route exact path={content.urls.lettersCreateURL}>
+              <LettersCreate />
             </Route>
           </Switch>
         </div>

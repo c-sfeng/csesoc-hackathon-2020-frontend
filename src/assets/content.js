@@ -1,13 +1,24 @@
 export const content = {
+    "header": {
+        "home": "HOME",
+        "letters": "LETTERS",
+        "responses": "RESPONSES",
+        "requests": "REQUESTS",
+        "support": "SUPPORT"
+    },
     "urls": {
         "homeURL": "/",
         "lettersURL": "/letters",
         "responsesURL": "/responses",
         "requestsURL": "/requests",
         "supportURL": "/support",
-        "letterCreateURL": "/letters/create",
+        "lettersCreateURL": "/letters/create",
         "requestResponseURL": "/requests/respond",
-        "responseThreadURL": "/responses/thread",
         "threadURL": "/thread",
+        "lettersThreadURL": "/letters/thread",
+        "responseThreadURL": "/responses/thread"
+    },
+    "letters": {
+        "create": "SEND A LETTER >"
     }
 }

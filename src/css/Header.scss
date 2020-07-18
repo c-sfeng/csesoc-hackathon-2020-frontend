@@ -1,0 +1,30 @@
+.navigation-norm {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 0;
+}
+
+.navigation-tab {
+    font-family: 'Josefin Sans', sans-serif;
+    padding-right: 4%;
+    padding-top: 2rem;
+    padding-bottom: calc(1.4rem - 0.1em);
+}
+
+.navigation-tab a {
+    color: black;
+    text-decoration: none;
+}
+
+.navigation-tab h4 {
+    font-weight: 300;
+    font-size: 1rem;
+}
+
+.current-tab h4 {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    padding-bottom: 0.1em;
+}
+    
