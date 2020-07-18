@@ -1,26 +1,60 @@
 import React from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { socket } from './App.jsx';
+import { Link } from 'react-router-dom';
+import { content } from './assets/content';
+import { Button } from 'react-bootstrap';
+import Header from './Header';
 
 class Thread extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {thread: []};
+        this.state = {thread: [], origin: ""};
     }
-
+    // this.state.thread[last].userid ===  ----
     renderThread() {
         const threadListGroup = this.state.thread.map((letter) =>
-            <ListGroup.Item>
-                {letter.dateSent}<br/>{letter.subject}<br/>{letter.body}<br/>{letter.initials}
+            <ListGroup.Item className="col letter-cards">
+                <div className="letter-container">
+                    <div className="row-flex">
+                        <p className="letter letter-subject">{letter.subject}</p>
+                        <p className="letter letter-date">{letter.dateSent}</p>
+                    </div>
+                    <p className="letter letter-body">{letter.body}</p>
+                    <div className="letter-signature">
+                        <p className="letter-signature">- {letter.initials}</p>
+                    </div>
+                </div>
             </ListGroup.Item>
         );
         return (
-            <ListGroup>{threadListGroup}</ListGroup>
+            <ListGroup className="row-flex">
+                {threadListGroup}
+                <div className="col letter-cards list-group-item">
+                    <div className="letter-container">
+                        <textarea 
+                            placeholder="Subject"
+                            className="letter letter-subject"
+                        />
+                        <textarea 
+                            placeholder="Your letter body!"
+                            className="letter letter-body"
+                        />
+                        <div className="letter-signature">
+                            <p className="letter-signature">- INITIALS</p>
+                        </div>
+                    </div>
+                    <div className="container body-container button-container thread-send">
+                        <Button variant="primary" className="letter-button">SEND</Button>
+                    </div>
+                </div>
+            </ListGroup>
         );
     }
 
     componentDidMount() {
         const threadInfo = this.props.location.state;
+        this.setState({origin: threadInfo.origin});
         socket.emit("getThread", threadInfo.isResponse, threadInfo.letterId, threadInfo.userId);
         socket.on("receiveThread", (thread) => {
             this.setState({thread: thread});
@@ -30,8 +64,31 @@ class Thread extends React.Component {
 
     render() {
         return (
-            <div>
-                {this.renderThread()}
+            <div className="App">
+                {this.state.origin === "responses" ? (
+                    <div className="container">
+                        <Header selected={4}/>
+                    </div>
+                ) : 
+                <div className="container">
+                    <Header selected={3}/>
+                </div>}
+                <div className="container back-container">
+                    <div className="third body-container">
+                        <Link to={this.state.origin === "responses" ? (content.urls.responsesURL) : (content.urls.lettersURL)}>
+                            <h4 className="back-button">{content.letters.back}</h4>
+                        </Link>
+                    </div>
+                    <div className="third body-container"></div>
+                </div>
+                <div className="horizontal-thread-container" onLoad="window.scroll(10000000, 0)">
+                    <div className="container-fluid">
+                        <div className="row flex-nowrap">
+                            {this.renderThread()}
+                            
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }

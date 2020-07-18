@@ -4,6 +4,7 @@ import { content } from './assets/content';
 import { Link } from 'react-router-dom';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { socket } from './App.jsx';
+import { Row, Col } from 'react-bootstrap';
 
 class Letters extends React.Component {
     constructor(props) {
@@ -14,13 +15,30 @@ class Letters extends React.Component {
     renderLetters() {
         if (this.state.letters == null || !this.state.letters.length) {
             return (
-                <ListGroup><ListGroup.Item>No Letters :(</ListGroup.Item></ListGroup>
+                <ListGroup>
+                    <ListGroup.Item className="thread-link">
+                        No Letters Yet
+                    </ListGroup.Item>
+                </ListGroup>
             );
         }
         const lettersListGroup = this.state.letters.map((letter) => 
             <Link to={{pathname: content.urls.threadURL, state: {isResponse : false, letterId: letter.letterId, userId: letter.userId}}}>
-                <ListGroup.Item>
-                    {letter.dateSent + " " + letter.subject + " " + letter.body}
+                <ListGroup.Item className="thread-link">
+                    <Row className="row-thread">
+                        <Col>
+                            <em>{letter.dateSent}</em>
+                        </Col>
+                        <Col>
+                            <em>Subject:</em> {letter.subject}
+                        </Col>
+                        <Col>
+                            <em>From:</em> {letter.initials}
+                        </Col>
+                        <Col className="right-align">
+                            <span className="carousel-control-next-icon"></span>
+                        </Col>
+                    </Row>
                 </ListGroup.Item>
             </Link>
         );
@@ -43,11 +61,12 @@ class Letters extends React.Component {
                 <div className="container">
                     <Header selected={3}/>
                 </div>
-                letters
-                <Link to={content.urls.lettersCreateURL}> 
-                    <h4 className="create-button">{content.letters.create}</h4>
-                </Link>
-                <div>
+                <div className="container body-container">
+                    <Link to={content.urls.lettersCreateURL}> 
+                        <h4 className="create-button">{content.letters.create}</h4>
+                    </Link>                   
+                </div>
+                <div className="container body-container thread-container">
                     {this.renderLetters()}
                 </div>
             </div>
