@@ -1,0 +1,83 @@
+.banner-primary {
+    font-family: 'Josefin Sans', sans-serif;
+    text-align: center;
+    height: 530px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.banner-primary-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: black;
+}
+
+.banner-primary-title {
+    font-weight: 600;
+    font-size: 3.125rem;
+    line-height: 3.125rem;
+    letter-spacing: 1.6rem;
+    margin: 1%;
+}
+
+.banner-primary-subtitle {
+    font-weight: 400;
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+    letter-spacing: 0.3rem;
+    margin: 1%;
+}
+
+.banner-primary-image {
+    position: relative;
+    width: 100%;
+    height: inherit;
+    background-size: cover;
+    background-position: center;
+    z-index: -99;
+}
+
+@media screen and (max-width: 991px) and (min-width: 768px) {
+    .banner-primary-title {
+        font-size: 2rem;
+        line-height: 2rem;
+        letter-spacing: 1rem;
+    }
+
+    .banner-primary-subtitle {
+        font-size: 1rem;
+        line-height: 1.2rem;
+        letter-spacing: 0.7rem;
+    }
+}
+
+@media screen and (max-width: 767px) and (min-width: 576px) {
+    .banner-primary-title {
+        font-size: 2rem;
+        line-height: 1.5rem;
+        letter-spacing: 0.75rem;
+    }
+
+    .banner-primary-subtitle {
+        font-size: 0.8rem;
+        line-height: 1.2rem;
+        letter-spacing: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 575px){
+    .banner-primary-title {
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+        letter-spacing: 0.4rem;
+    }
+
+    .banner-primary-subtitle {
+        font-size: 0.75rem;
+        line-height: 1.2rem;
+        letter-spacing: 0.4rem;
+    }
+}
