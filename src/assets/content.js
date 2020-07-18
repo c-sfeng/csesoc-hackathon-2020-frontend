@@ -14,6 +14,7 @@ export const content = {
         "supportURL": "/support",
         "lettersCreateURL": "/letters/create",
         "requestResponseURL": "/requests/respond",
+        "threadURL": "/thread",
         "lettersThreadURL": "/letters/thread",
         "responseThreadURL": "/responses/thread"
     },
