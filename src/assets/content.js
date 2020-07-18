@@ -8,5 +8,6 @@ export const content = {
         "letterCreateURL": "/letters/create",
         "requestResponseURL": "/requests/respond",
         "responseThreadURL": "/responses/thread",
+        "threadURL": "/thread",
     }
 }
