@@ -23,7 +23,7 @@ class Letters extends React.Component {
             );
         }
         const lettersListGroup = this.state.letters.map((letter) => 
-            <Link to={{pathname: content.urls.threadURL, state: {isResponse : false, letterId: letter.letterId, userId: letter.userId}}}>
+            <Link to={{pathname: content.urls.threadURL, state: {requestId: letter.requestId, isResponse : false, letterId: letter.letterId, userId: letter.userIds[0]}}}>
                 <ListGroup.Item className="thread-link">
                     <Row className="row-thread">
                         <Col>
@@ -51,6 +51,7 @@ class Letters extends React.Component {
         socket.emit("getUserLetters", this.props.userId);
         socket.on("receiveUserLetters", (letters) => {
             this.setState({letters: letters});
+            console.log("AA");
             console.log(letters);
         });
     }

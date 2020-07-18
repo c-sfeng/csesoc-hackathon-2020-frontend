@@ -3,6 +3,7 @@ import Header from './Header';
 import { Button, Carousel } from 'react-bootstrap';
 import { content } from './assets/content';
 import { socket } from './App.jsx';
+import { Link } from 'react-router-dom';
 
 export class Requests extends React.Component {
     constructor(props) {
@@ -26,9 +27,11 @@ export class Requests extends React.Component {
                     </div>
                 </div>
                 <div className="container body-container button-container">
-                    <Button variant="primary" className="letter-button">
-                        {content.requests.reply}
-                    </Button>
+                    <Link to={{pathname: content.urls.requestsReplyURL, state: {id: request.letterId, subject: request.subject, body: request.body, initials: request.initials}}}>
+                        <Button variant="primary" className="letter-button">
+                            {content.requests.reply}
+                        </Button>
+                    </Link>
                     <Button variant="primary" className="report-button">
                         {content.requests.report}
                     </Button>

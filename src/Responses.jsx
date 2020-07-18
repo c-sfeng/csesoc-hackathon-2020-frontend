@@ -24,7 +24,7 @@ class Responses extends React.Component {
             );
         }
         const responsesListGroup = this.state.responses.map((response) => 
-            <Link to={{pathname: content.urls.threadURL, state: {isResponse : true, letterId: response.letterId, userId: response.userId, origin: "responses"}}}>
+            <Link to={{pathname: content.urls.threadURL, state: {requestId: response.requestId, isResponse : true, letterId: response.letterId, userId: response.userId, origin: "responses"}}}>
                 <ListGroup.Item className="thread-link">
                     <Row className="row-thread">
                         <Col>

@@ -12,6 +12,17 @@ class Thread extends React.Component {
         this.state = {thread: [], origin: ""};
     }
     // this.state.thread[last].userid ===  ----
+
+    replyLetter() {
+        const letterSubject = this.sf.value;
+        const letterBody = this.lb.value;
+        const initials = this.iFd.value;
+        this.sf.value = "";
+        this.lb.value = "";
+        this.iFd.value = "";
+        socket.emit("replyLetter", this.props.location.state.requestId, this.props.location.state.userId, initials, letterSubject, letterBody);
+    }
+
     renderThread() {
         const threadListGroup = this.state.thread.map((letter) =>
             <ListGroup.Item className="col letter-cards">
@@ -32,20 +43,33 @@ class Thread extends React.Component {
                 {threadListGroup}
                 <div className="col letter-cards list-group-item">
                     <div className="letter-container">
-                        <textarea 
+                        <textarea
+                            ref={sf => {
+                                this.sf = sf;    
+                            }} 
                             placeholder="Subject"
                             className="letter letter-subject"
                         />
-                        <textarea 
+                        <textarea
+                            ref={lb => {
+                                this.lb = lb;
+                            }}
                             placeholder="Your letter body!"
                             className="letter letter-body"
                         />
                         <div className="letter-signature">
-                            <p className="letter-signature">- INITIALS</p>
+                            <textarea
+                                ref={(iFd) => {
+                                    this.iFd = iFd;
+                                }}
+                                placeholder="Your Initials!"
+                                className="letter letter-subject"
+                                maxLength="2"
+                            />
                         </div>
                     </div>
                     <div className="container body-container button-container thread-send">
-                        <Button variant="primary" className="letter-button">SEND</Button>
+                        <Button variant="primary" className="letter-button" onClick={() => this.replyLetter()}>SEND</Button>
                     </div>
                 </div>
             </ListGroup>

@@ -60,8 +60,9 @@ class App extends React.Component {
               <LettersCreate {...props} userId={this.userId} />
             )}>
             </Route>
-            <Route exact path={content.urls.requestsReplyURL}>
-              <RequestReply />
+            <Route exact path={content.urls.requestsReplyURL} render={(props) => (
+              <RequestReply {...props} userId={this.userId} />
+            )}>
             </Route>
           </Switch>
         </div>
