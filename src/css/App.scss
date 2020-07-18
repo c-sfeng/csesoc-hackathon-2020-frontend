@@ -1,38 +1,120 @@
 .App {
   text-align: center;
+  position: relative;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.letter-container {
+  width: 500px;
+  padding: 0;
+  border: 1px black solid;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.tool-tip {
+  border: 1px black solid;
+  height: 80px;
+  border-radius: 7px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 200;
+  padding: 0 15px;
 }
 
-.App-link {
-  color: #61dafb;
+.button-container {
+  width: 530px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.letter {
+  resize: none;
+  outline: none;
+  overflow: auto;
+  height: 500px;
+  width: 500px;
+  font-family: Montserrat, sans-serif;
+  padding: 15px 15px 0px 15px;
+  font-size: 14px;
+  border: none;
+}
+
+.letter-signature {
+  margin: 0;
+  padding: 10px 25px 20px 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+p.letter-signature {
+  padding: 0px;
+}
+
+.letter-button {
+  background-color: #6cd077;
+  border-color: #6cd077;
+}
+
+.letter-button:hover {
+  background-color: #59ac62;
+  border-color: #59ac62;
+}
+
+.create-button {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 200;
+}
+
+.norm-container {
+  position: relative;
+  margin: 0 14%;
+  overflow: hidden;
+}
+
+.body-container {
+  margin-top: 50px;
+  overflow: hidden;
+}
+
+.end-container {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+.sub-container {
+  position: relative;
+  margin:0 4.5%;
+}
+
+.translucent-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  z-index: -98;
+  background-color: rgba(132, 132, 132, 0.5);
+  box-sizing: content-box;
+}
+
+.primary-text {
+  font-family: Montserrat, sans-serif;
+  font-size: 1rem;
+  line-height: 200%;
+  letter-spacing: 0.02em;
+  padding: 0 6.5%;
+  text-align: justify;
+}
+
+@media screen and (max-width: 575px){
+  .primary-text {
+      font-size: 0.95rem;
+      line-height: 200%;
+      letter-spacing: 0.02rem;
   }
 }

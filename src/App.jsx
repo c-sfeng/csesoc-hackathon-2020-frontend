@@ -10,6 +10,8 @@ import Home from './Home.jsx';
 import Letters from './Letters.jsx';
 import Responses from './Responses.jsx';
 import Requests from './Requests.jsx';
+import Support from './Support.jsx';
+import LettersCreate from './LettersCreate.jsx';
 
 function App() {
   return (
@@ -26,7 +28,13 @@ function App() {
             <Responses />
           </Route>
           <Route exact path={content.urls.requestsURL}>
-            <Requests />
+            <Requests requests={[]} />
+          </Route>
+          <Route exact path={content.urls.supportURL}>
+            <Support />
+          </Route>
+          <Route exact path={content.urls.lettersCreateURL}>
+            <LettersCreate />
           </Route>
         </Switch>
       </div>
