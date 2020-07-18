@@ -29,7 +29,8 @@ export class Requests extends React.Component {
                     <Carousel fade={true} interval={null} onSelect={handleSelect}>
                         <Carousel.Item>
                             <div className="container body-container letter-container">
-                                <p className="letter"> testtestesttestetsetstetstestet</p>
+                                <p className="letter letter-subject">Subject 1</p>
+                                <p className="letter letter-body"> testtestesttestetsetstetstestet</p>
                                 <div className="letter-signature">
                                     <p className="letter-signature">- INITIALS</p>
                                 </div>
@@ -37,7 +38,8 @@ export class Requests extends React.Component {
                         </Carousel.Item>
                         <Carousel.Item>
                             <div className="container body-container letter-container">
-                                <p className="letter"> blahhhhhhhhhhhhhhhhh</p>
+                                <p className="letter letter-subject">Subject 2</p>
+                                <p className="letter letter-body"> blahhhhhhhhhhhhhhhhh</p>
                                 <div className="letter-signature">
                                     <p className="letter-signature">- INITIALS</p>
                                 </div>

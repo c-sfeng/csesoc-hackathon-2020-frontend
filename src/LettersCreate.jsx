@@ -17,8 +17,12 @@ export default class LettersCreate extends React.Component {
                 </div>
                 <div className="container body-container letter-container">
                     <textarea 
-                        placeholder="Remember, be nice!"
-                        className="letter"
+                        placeholder="Subject"
+                        className="letter letter-subject"
+                    />
+                    <textarea 
+                        placeholder="Your letter body!"
+                        className="letter letter-body"
                     />
                     <div className="letter-signature">
                         <p className="letter-signature">- INITIALS</p>

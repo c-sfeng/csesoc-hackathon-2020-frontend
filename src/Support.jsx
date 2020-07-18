@@ -7,7 +7,11 @@ function Support() {
             <div className="container">
                 <Header selected={5}/>
             </div>
-            support
+            <div className="container body-container text-container">
+                <p>
+                    test
+                </p>
+            </div>
         </div>
     );
 }

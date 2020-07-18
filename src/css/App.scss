@@ -34,15 +34,24 @@
   resize: none;
   outline: none;
   overflow: auto;
-  height: 500px;
   width: 500px;
   font-family: Montserrat, sans-serif;
   padding: 15px 15px 0px 15px;
-  font-size: 14px;
   border: none;
   display: flex;
   justify-content: left;
   margin: 0;
+}
+
+.letter-subject {
+  font-size: 18px;
+  height: 50px;
+  overflow: hidden;
+}
+
+.letter-body {
+  font-size: 14px;
+  height: 435px;
 }
 
 .letter-signature {
@@ -64,6 +73,14 @@ p.letter-signature {
   animation: none !important;
 }
 
+
+.letter-button:active {
+  background-color: #6cd077 !important;
+  border-color: #6cd077 !important;
+  opacity: 1 !important;
+  animation: none !important;
+}
+
 .letter-button:hover {
   background-color: #59ac62;
   border-color: #59ac62;
@@ -74,6 +91,13 @@ p.letter-signature {
 .report-button {
   background-color: #d06c6c;
   border-color: #d06c6c;
+  opacity: 1 !important;
+  animation: none !important;
+}
+
+.report-button:active {
+  background-color: #d06c6c !important;
+  border-color: #d06c6c !important;
   opacity: 1 !important;
   animation: none !important;
 }
@@ -124,6 +148,13 @@ p.letter-signature {
 .end-container {
   padding-top: 2rem;
   padding-bottom: 1rem;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: start;
 }
 
 .sub-container {
