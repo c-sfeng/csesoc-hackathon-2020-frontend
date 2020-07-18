@@ -16,7 +16,8 @@ export const content = {
         "requestResponseURL": "/requests/respond",
         "threadURL": "/thread",
         "lettersThreadURL": "/letters/thread",
-        "responseThreadURL": "/responses/thread"
+        "responseThreadURL": "/responses/thread",
+        "requestsReplyURL": "/requests/reply"
     },
     "letters": {
         "create": "SEND A LETTER >",

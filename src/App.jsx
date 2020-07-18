@@ -12,6 +12,7 @@ import Responses from './Responses.jsx';
 import Requests from './Requests.jsx';
 import Support from './Support.jsx';
 import LettersCreate from './LettersCreate.jsx';
+import RequestReply from './RequestsReply.jsx';
 import Thread from './Thread.jsx'
 import socketIOClient from "socket.io-client";
 
@@ -58,6 +59,9 @@ class App extends React.Component {
             <Route exact path={content.urls.lettersCreateURL} render={(props) => (
               <LettersCreate {...props} userId={this.userId} />
             )}>
+            </Route>
+            <Route exact path={content.urls.requestsReplyURL}>
+              <RequestReply />
             </Route>
           </Switch>
         </div>
