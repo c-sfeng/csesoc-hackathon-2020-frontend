@@ -23,7 +23,7 @@ class Letters extends React.Component {
             );
         }
         const lettersListGroup = this.state.letters.map((letter) => 
-            <Link to={{pathname: content.urls.threadURL, state: {requestId: letter.requestId, isResponse : false, letterId: letter.letterId, userId: letter.userIds[0]}}}>
+            <Link to={{pathname: content.urls.threadURL, state: {requestId: letter.letterId, isResponse : false, letterId: letter.letterId, userId: letter.userIds[0]}}}>
                 <ListGroup.Item className="thread-link">
                     <Row className="row-thread">
                         <Col>
