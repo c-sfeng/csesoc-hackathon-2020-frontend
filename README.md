@@ -1,3 +1,5 @@
+This is frontend code, backend code is here: https://github.com/spyofthemonth/csesoc-hackathon-2020
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
